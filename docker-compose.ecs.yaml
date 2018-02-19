@@ -1,0 +1,10 @@
+nginx:
+  image: "642901621571.dkr.ecr.us-east-1.amazonaws.com/datarea-nginx"
+  ports:
+    - "80:80"
+  links:
+    - "app:app"
+app:
+  image: "642901621571.dkr.ecr.us-east-1.amazonaws.com/datarea"
+  ports:
+    - "8082:8082"
