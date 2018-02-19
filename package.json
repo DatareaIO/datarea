@@ -13,7 +13,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "precommit": "lint-staged",
-    "prepush": "npm test && npm run build"
+    "prepush": "npm run build"
   },
   "lint-staged": {
     "*.{d.ts,ts,json,md}": ["prettier --write", "git add"]
