@@ -1,0 +1,14 @@
+@import "../../variables";
+
+:host(app-main-page) {
+  height: 100%;
+  width: 100%;
+}
+
+.page-section-1 {
+  height: 100%;
+}
+
+.page-section-x {
+  height: calc(100% + #{$header-height});
+}

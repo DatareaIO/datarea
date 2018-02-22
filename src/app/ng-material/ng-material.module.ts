@@ -7,21 +7,17 @@ import {
   MatIconModule
 } from "@angular/material";
 
+const modules = [
+  BrowserAnimationsModule,
+  MatButtonModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatIconModule
+];
+
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule
-  ],
-  exports: [
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule
-  ],
+  imports: modules,
+  exports: modules,
   declarations: []
 })
 export class NgMaterialModule {}

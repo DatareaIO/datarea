@@ -1,7 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import '~leaflet/dist/leaflet.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~leaflet/dist/leaflet.css";
+@import "./variables";
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
 
 .clickable {
   cursor: pointer;
@@ -13,9 +21,25 @@
 
 .element-row {
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
 }
 
 .space-filler {
   flex: 1 1 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.color-white {
+  color: white;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
+.background-primary {
+  background-color: $primary-color;
 }
