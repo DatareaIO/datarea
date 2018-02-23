@@ -12,3 +12,9 @@
 .page-section-x {
   height: calc(100% + #{$header-height});
 }
+
+.main-search-box {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
