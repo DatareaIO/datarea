@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-main-page",
@@ -6,7 +7,7 @@ import { Component, AfterViewInit } from "@angular/core";
   styleUrls: ["./main-page.component.scss"]
 })
 export class MainPageComponent implements AfterViewInit {
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngAfterViewInit() {
     /**

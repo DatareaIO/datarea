@@ -2,9 +2,17 @@
   <h2>singular-data-net</h2>
   <span class="space-filler"></span>
   <div class="element-row">
-    <button mat-button>Search</button>
-    <button mat-button>About</button>
-    <button mat-button>Blog</button>
+    <button mat-button (click)="routeTo('/main', 'search')">
+      Search
+    </button>
+    <button mat-button (click)="routeTo('/main', 'about')">
+      About
+    </button>
+    <a mat-button
+       href=""
+       target="_blank">
+      Blog
+    </a>
     <a mat-button
        href="https://github.com/SingularData/singular-data-net"
        target="_blank">
