@@ -2,12 +2,12 @@
   <h2>singular-data-net</h2>
   <span class="space-filler"></span>
   <div class="element-row">
-    <button mat-button (click)="routeTo('/main', 'search')">
+    <a mat-button [routerLink]="['main']">
       Search
-    </button>
-    <button mat-button (click)="routeTo('/main', 'about')">
+    </a>
+    <a mat-button [routerLink]="['main']" fragment="about">
       About
-    </button>
+    </a>
     <a mat-button
        href=""
        target="_blank">

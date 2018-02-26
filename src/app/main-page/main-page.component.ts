@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from "@angular/core";
+import { Component, AfterViewInit, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -6,8 +6,16 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./main-page.component.html",
   styleUrls: ["./main-page.component.scss"]
 })
-export class MainPageComponent implements AfterViewInit {
+export class MainPageComponent implements OnInit, AfterViewInit {
+  private fragment: string;
+
   constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.fragment.subscribe(fragment => {
+      this.fragment = fragment;
+    });
+  }
 
   ngAfterViewInit() {
     /**
@@ -25,5 +33,13 @@ export class MainPageComponent implements AfterViewInit {
     )[0] as HTMLElement;
     underline.style.visibility = "visible";
     underline.style.backgroundColor = "white";
+
+    if (this.fragment) {
+      document.querySelector("#" + this.fragment).scrollIntoView();
+    }
+
+    this.route.fragment.subscribe(fragment => {
+      document.querySelector("#" + this.fragment).scrollIntoView();
+    });
   }
 }

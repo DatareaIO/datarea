@@ -10,17 +10,4 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
-
-  routeTo(path: string, fragment?: string) {
-    let navigationExtras: NavigationExtras;
-
-    if (fragment) {
-      navigationExtras = {
-        fragment,
-        preserveFragment: true
-      };
-    }
-
-    this.router.navigate(["/main"], navigationExtras);
-  }
 }
