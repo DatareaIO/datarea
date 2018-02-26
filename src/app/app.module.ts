@@ -7,11 +7,17 @@ import { NgRoutingModule } from "./ng-routing/ng-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { MainPageComponent } from "./main-page/main-page.component";
+import { SearchPageComponent } from "./search-page/search-page.component";
 
 import "leaflet";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MainPageComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MainPageComponent,
+    SearchPageComponent
+  ],
   imports: [BrowserModule, FlexLayoutModule, NgMaterialModule, NgRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

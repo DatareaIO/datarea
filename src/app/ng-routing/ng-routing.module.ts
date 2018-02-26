@@ -1,9 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { MainPageComponent } from "../main-page/main-page.component";
+import { SearchPageComponent } from "../search-page/search-page.component";
 
 const routes: Routes = [
-  // { path: "search",  component: SearchResultComponent },
+  { path: "search", component: SearchPageComponent },
   // { path: "datasets/:id", component: DatasetDetailComponent },
   {
     path: "",

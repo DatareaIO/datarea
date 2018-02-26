@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-main-page",
@@ -9,7 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 export class MainPageComponent implements OnInit, AfterViewInit {
   private fragment: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.fragment.subscribe(fragment => {
@@ -41,5 +41,9 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.route.fragment.subscribe(fragment => {
       document.querySelector("#" + this.fragment).scrollIntoView();
     });
+  }
+
+  search(keyword?: string) {
+    this.router.navigateByUrl("search?q=" + encodeURIComponent(keyword));
   }
 }
