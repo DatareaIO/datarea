@@ -39,11 +39,17 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     }
 
     this.route.fragment.subscribe(fragment => {
-      document.querySelector("#" + this.fragment).scrollIntoView();
+      if (this.fragment) {
+        document.querySelector("#" + this.fragment).scrollIntoView();
+      }
     });
   }
 
   search(keyword?: string) {
-    this.router.navigateByUrl("search?q=" + encodeURIComponent(keyword));
+    this.router
+      .navigateByUrl("search?q=" + encodeURIComponent(keyword), {
+        skipLocationChange: false
+      })
+      .catch(err => console.log(err));
   }
 }
