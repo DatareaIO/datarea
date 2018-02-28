@@ -13,8 +13,6 @@ export class DatasetService {
   }
 
   search(keywords?: string): Observable<any> {
-    return this.http
-      .get(this.api + "/api/datasets/search?q=" + keywords)
-      .map((data: any) => data.result);
+    return this.http.get(this.api + "/api/datasets/search?q=" + keywords);
   }
 }

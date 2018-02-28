@@ -10,7 +10,7 @@
 }
 
 .page-section-x {
-  height: calc(100% - #{$header-height});
+  height: calc(100% + #{$header-height});
 }
 
 .main-search-box {

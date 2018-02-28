@@ -36,10 +36,20 @@ body {
   width: 100%;
 }
 
+.width-half {
+  width: 50%;
+}
+
+.page {
+  height: calc(100% - #{$header-height});
+}
+
 .page-content {
   padding: 20px 0;
   width: 50%;
   min-width: 800px;
+  height: inherit;
+  min-height: 400px;
 }
 
 .color-white {

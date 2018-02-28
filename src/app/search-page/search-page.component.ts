@@ -11,38 +11,34 @@ import "rxjs/add/operator/switchMap";
 })
 export class SearchPageComponent implements OnInit {
   keywords: string;
-  currentKeywords: string;
+  status: string;
   datasets: Array<any>;
-  searching: boolean;
 
   constructor(
     private dataset: DatasetService,
     private activatedRouter: ActivatedRoute,
     private router: Router
   ) {
+    this.status = "search";
     this.keywords = "";
-    this.currentKeywords = this.keywords;
     this.datasets = null;
-    this.searching = false;
   }
 
   ngOnInit() {
-    this.searching = true;
-
     this.activatedRouter.queryParams
       .switchMap((params: Params) => {
         this.keywords = params.q;
-        this.currentKeywords = params.q;
-
         return this.dataset.search(params.q);
       })
       .subscribe(
         result => {
           this.datasets = result;
-          this.searching = false;
+          this.status = "success";
+          console.log(result);
         },
         error => {
-          this.searching = false;
+          console.log(error);
+          this.status = "error";
         }
       );
   }
