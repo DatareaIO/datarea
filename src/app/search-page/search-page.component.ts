@@ -25,10 +25,24 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.sendSearchRequest();
+  }
+
+  search(keywords?: string) {
+    this.router
+      .navigateByUrl("search?q=" + encodeURIComponent(keywords))
+      .then(() => this.sendSearchRequest())
+      .catch(error => {
+        console.log(error);
+        this.status = "error";
+      });
+  }
+
+  sendSearchRequest(keywords?: string) {
     this.activatedRouter.queryParams
       .switchMap((params: Params) => {
-        this.keywords = params.q;
-        return this.dataset.search(params.q);
+        this.keywords = params.q || "";
+        return this.dataset.search(this.keywords);
       })
       .subscribe(
         result => {
