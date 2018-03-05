@@ -14,13 +14,15 @@
               <h4 mat-line>Title</h4>
               <p mat-line>{{ dcat.title }}</p>
             </mat-list-item>
-            <mat-list-item>
+            <mat-list-item *ngIf="dcat.publisher">
               <h4 mat-line>Publisher</h4>
               <p mat-line>{{ dcat.publisher }}</p>
             </mat-list-item>
             <mat-list-item *ngIf="dcat.landingPage">
               <h4 mat-line>Landing Page</h4>
-              <p mat-line>{{ dcat.landingPage }}</p>
+              <div mat-line>
+                <a [href]="dcat.landingPage" target="_blank">{{ dcat.landingPage }}</a>
+              </div>
             </mat-list-item>
             <mat-list-item *ngIf="dcat.description">
               <h4 mat-line>Description</h4>

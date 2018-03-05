@@ -30,7 +30,7 @@
           <markdown ellipsis [data]="dataset.dcat.description"></markdown>
         </mat-card-content>
         <mat-card-actions>
-          <a mat-button [routerLink]="['datasets', dataset.dcat.identifier]">
+          <a mat-button [routerLink]="['/datasets', dataset.dcat.identifier]">
             Metadata
           </a>
           <a mat-button *ngIf="dataset.dcat.landingPage" [href]="dataset.dcat.landingPage" target="_blank">Source</a>
