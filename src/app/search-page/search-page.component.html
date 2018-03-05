@@ -9,7 +9,7 @@
                placeholder="dataset name, keywords, tags, topics, etc">
       </mat-form-field>
     </form>
-    <div *ngIf="status === 'search'" class="search-status" fxLayout="column" fxLayoutAlign="center center">
+    <div *ngIf="status === 'load'" class="search-status" fxLayout="column" fxLayoutAlign="center center">
       <mat-spinner></mat-spinner>
       <p>Searching</p>
     </div>
@@ -17,7 +17,25 @@
       <p>An error occurs...</p>
     </div>
     <div *ngIf="status === 'success'">
-      <div>yoo</div>
+      <mat-card *ngFor="let dataset of datasets" class="mat-card-margin">
+        <mat-card-header>
+          <mat-card-title class="mat-headline">
+            {{ dataset.dcat.title }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{ dataset.dcat.publisher }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="dataset.dcat.description">
+          <markdown ellipsis [data]="dataset.dcat.description"></markdown>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button [routerLink]="['datasets', dataset.dcat.identifier]">
+            Metadata
+          </a>
+          <a mat-button *ngIf="dataset.dcat.landingPage" [href]="dataset.dcat.landingPage" target="_blank">Source</a>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>

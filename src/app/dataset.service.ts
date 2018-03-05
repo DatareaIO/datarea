@@ -15,4 +15,14 @@ export class DatasetService {
   search(keywords?: string): Observable<any> {
     return this.http.get(this.api + "/api/datasets/search?q=" + keywords);
   }
+
+  retrieve(id: string, part?: string): Observable<any> {
+    let url = `${this.api}/api/datasets/${id}`;
+
+    if (part) {
+      url += `/${part}`;
+    }
+
+    return this.http.get(url);
+  }
 }

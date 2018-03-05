@@ -51,5 +51,6 @@
   "defaults": {
     "styleExt": "scss",
     "component": {}
-  }
+  },
+  "scripts": ["./node_modules/marked/lib/marked.js"]
 }

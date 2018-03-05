@@ -19,7 +19,7 @@ export class SearchPageComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.status = "search";
+    this.status = "load";
     this.keywords = "";
     this.datasets = null;
   }
@@ -46,9 +46,8 @@ export class SearchPageComponent implements OnInit {
       })
       .subscribe(
         result => {
-          this.datasets = result;
+          this.datasets = result.result;
           this.status = "success";
-          console.log(result);
         },
         error => {
           console.log(error);
